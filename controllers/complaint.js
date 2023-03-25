@@ -22,8 +22,7 @@ export const getComplaints = (req, res) => {
 
 export const getComplaintsAdmin = (req, res) => {
   try {
-    const officerType = parseInt(req.params.type.at(-1))
-    Complaint.find({handlingOfficer: officerType}, (err, allComplaints) => {
+    Complaint.find({}, (err, allComplaints) => {
       if(!err)
         res.status(200).json({complaints: allComplaints})
     });
